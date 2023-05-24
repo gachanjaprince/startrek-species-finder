@@ -65,7 +65,7 @@ const aliens = {
 }
 
 app.get('/', (req, res)=> {
-    respond.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 
 app.get('/api/:alienName', (req, res)=> {
