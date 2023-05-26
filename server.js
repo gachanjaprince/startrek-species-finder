@@ -2,9 +2,13 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const PORT = 8000
+const MongoClient = require('mongodb').MongoClient
+const uri = "mongodb+srv://gachanjaprince:UJu5sbF5Iqj67spi@cluster0.5jwm4mk.mongodb.net/?retryWrites=true&w=majority"
 
 app.use(cors())
+app.use(express.json())
 
+/*
 const aliens = {
     'humans': {
         'speciesName': 'Humans',
@@ -63,19 +67,31 @@ const aliens = {
         'image': 'https://static.wikia.nocookie.net/aliens/images/4/42/EzriDax.jpg'
     }
 }
+*/
 
-app.get('/', (req, res)=> {
-    res.sendFile(__dirname + '/index.html')
-})
 
-app.get('/api/:alienName', (req, res)=> {
-    const alienName = req.params.alienName.toLowerCase()
-    if (aliens[alienName]) {
-        res.json(aliens[alienName])
-    } else {
-        res.json(aliens['humans'])
-    }
-})
+MongoClient.connect(uri)
+    .then(client=> {
+        console.log('Connected to Database')
+        const db = client.db('startrek-api')
+        const infoCollection = db.collection('alien-info')
+
+        app.get('/', (req, res)=> {
+            res.sendFile(__dirname + '/index.html')
+        })
+
+        app.get('/api/:alienName', (req, res)=> {
+            const alienName = req.params.alienName.toLowerCase()
+            
+            infoCollection.find({name: alienName}).toArray()
+                .then(results=> {
+                    console.log(results)
+                    res.json(results[0])
+                })
+                .catch(err=> console.error(err))
+        })
+    })
+    .catch(err => console.error(err))
 
 app.listen(process.env.PORT || PORT, ()=> {
     console.log('Server is running')
