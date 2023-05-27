@@ -83,7 +83,7 @@ MongoClient.connect(uri)
         app.get('/api/:alienName', (req, res)=> {
             const alienName = req.params.alienName.toLowerCase()
             
-            infoCollection.find({name: alienName}).toArray()
+            infoCollection.find({speciesName: alienName}).toArray()
                 .then(results=> {
                     console.log(results)
                     res.json(results[0])
