@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Fira+Sans+Condensed:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <title>species scanner</title>
 </head>
 <body>
-    <h1> Welcome to the Star Trek Species API!</h1>
+    <header>
+        <h1>Star Trek Species Log</h1>
+    </header>
+    <main>
+        <div class="noResult">
+            <span id="errorSearch"></span>
+        </div>
+        <div>
+            <input type="text">
+            <button>Search</button>
+        </div>
+        <div class="photo">
+            <p class="caption" id="alienCaption">Photo:</p>
+            <img src="" alt="alien-image" class="border" id="alienImage">
+        </div>
+
+        <ul>
+            <li><span>Species Name: <span id="alienName">...</span></span></li>
+            <li><span>Homeworld: <span id="alienWorld">...</span></span></li>
+            <li><span>Distinguishing Feature: <span id="alienFeatures">...</span></span></li>
+            <li><span>Notable Examples: <span id="alienExamples">...</span></span></li>
+            <li><span>Fun Fact: <span id="fact">...</span></span></li>
+        </ul>
+        <script src="static/main.js"></script>
+        </main>
+    </main>
 </body>
 </html>
