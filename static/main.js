@@ -9,7 +9,7 @@ async function apiRequest() {
             document.querySelector('#errorSearch').innerText = `Sorry we could'nt find results for '${alienName}'. You can try searching for Humans, Klingons or Vulcans instead.`
             document.querySelector('.noResult').style.visibility = "visible"
         }
-        const response = await fetch(`https://rich-jade-cocoon-gown.cyclic.app/api/${alienName}`)
+        const response = await fetch(`https://species-api-startrek.herokuapp.com//api/${alienName}`)
         const data = await response.json()
         console.log(data)
 

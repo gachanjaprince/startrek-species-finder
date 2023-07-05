@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const PORT = process.env.PORT || 8000
 const MongoClient = require('mongodb').MongoClient
+const PORT = process.env.PORT || 8000
+
 const uri = "mongodb+srv://gachanjaprince:UJu5sbF5Iqj67spi@cluster0.5jwm4mk.mongodb.net/?retryWrites=true&w=majority"
 
 app.use(cors())
@@ -16,10 +17,6 @@ MongoClient.connect(uri)
         console.log('Connected to Database')
         const db = client.db('startrek-api')
         const infoCollection = db.collection('alien-info')
-
-        app.get('/', (req, res)=> {
-            res.sendFile(__dirname + '/index.html')
-        })
 
         app.get('/api/:alienName', (req, res)=> {
             const alienName = req.params.alienName.toLowerCase()
