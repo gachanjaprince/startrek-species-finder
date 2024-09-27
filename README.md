@@ -1,7 +1,7 @@
 <div id="header">
   <h1>Startrek Species Finder</h1>
   <p>Learn about different species with just one click of a button!</p>
-  <span font-size="1.65rem"><strong>Live Site:</strong></span><span>https://startrek-species-finder.netlify.app/</span>
+<!--   <span font-size="1.65rem"><strong>Live Site:</strong></span><span>https://startrek-species-finder.netlify.app/</span> -->
 </div>
 <div align="center">
   <img src="https://github.com/gachanjaprince/startrek-species-finder/assets/129261938/4d58c035-e26a-4bd2-b121-722d932523bd" alt="A gif capturing the screen as the user selects the movie titled 'The Face of Another' from the suggestions provided based on the typed in keyword 'another'" width="62.5%"/>
